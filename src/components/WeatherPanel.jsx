@@ -1,11 +1,12 @@
 /* eslint-disable no-throw-literal */
 import React, { useState } from 'react';
-import Form from '../components/Form';
+import Form from './Form';
+import Card from './Card';
 
 const WeatherPanel = () => {
-    let urlWheater = 'https://api.openweathermap.org/data/2.5/weather?appid=2959820bf221d83ce918c684bdc9098a';
-    let urlForeCast = 'https://api.openweathermap.org/data/2.5/forecast?appid=2959820bf221d83ce918c684bdc9098a';
-    let urlCity = '&q=';
+    let urlWheater = 'https://api.openweathermap.org/data/2.5/weather?appid=2959820bf221d83ce918c684bdc9098a&lang=en';
+    let urlForeCast = 'https://api.openweathermap.org/data/2.5/forecast?appid=2959820bf221d83ce918c684bdc9098a&lang=en';
+    let urlCity = '&q= ';
 
     const [weather, setWeather] = useState([]);
     const [forecast, setForeCast] = useState([]);
@@ -25,8 +26,8 @@ const WeatherPanel = () => {
             if (!response.ok) throw { response }
             return response.json();
         }).then((weatherData) => {
-            console.log(weatherData.data);
-            setWeather(weatherData.data);
+            console.log(weatherData);
+            setWeather(weatherData);
             setLoading(false);
             setShow(true);
         }).catch(error => {
@@ -43,8 +44,8 @@ const WeatherPanel = () => {
             if (!response.ok) throw { response };
             return response.json();
         }).then((forecastData) => {
-            console.log(forecastData.data);
-            setForeCast(forecastData.data);
+            console.log(forecastData);
+            setForeCast(forecastData);
             setLoading(false);
             setShow(true);
         }).catch(error => {
@@ -59,8 +60,14 @@ const WeatherPanel = () => {
             < Form
                 newLocation={getLocation}
             />
+            < Card
+                showData={show}
+                loadingData={loading}
+                weather={weather}
+                forecast={forecast}
+            />
         </React.Fragment>
-    )
+    );
 }
 
 export default WeatherPanel;
