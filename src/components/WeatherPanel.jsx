@@ -31,7 +31,7 @@ const WeatherPanel = () => {
             setLoading(false);
             setShow(true);
         }).catch(error => {
-            console.error(error);
+            console.log(error);
             setLoading(false)
             setShow(false);
         });
@@ -49,7 +49,7 @@ const WeatherPanel = () => {
             setLoading(false);
             setShow(true);
         }).catch(error => {
-            console.error(error);
+            console.log(error);
             setLoading(false);
             setShow(false);
         });
