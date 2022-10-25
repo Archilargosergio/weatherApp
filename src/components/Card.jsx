@@ -34,20 +34,29 @@ const Card = ({ loadingData, showData, weather, foreCast }) => {
             {
                 showData === true ? (
 
-                    <section className='w-3/4 h-auto mx-auto bg-slate-900 text-white rounded-2xl'>
-                        <div className='flex'>
-                            <div className='w-1/3 h-auto text-center  rounded-2xl'>
-                                <div className='absolute z-1 place-content-center py-16 px-16 font-bold '>
-                                    <h1 className='m-2.5 text-6xl'> {weather.name} </h1>
+                    <section className='w-2/3 h-auto mx-auto bg-slate-900 text-white rounded-2xl'>
+                        <div className='flex '>
+                            <div className='w-2/3 h-auto rounded-2xl  justify-center'>
+                                <div className='absolute z-1 font-bold lg:m-16  md:m-6'>
+                                    <h1 className='m-2.5 lg:text-6xl md:text-4xl'> {weather.name} </h1>
                                     <p className='text-lg'> {date} </p>
-                                    <h1 className='text-6xl'> {(weather.main.temp - 273.15).toFixed(1)}˚C</h1>
-                                    <p className='flex items-center'> <img src={iconUrl} alt="icon/" /> {weather.weather[0].description} </p>
+                                    <h1 className='lg:text-6xl md:text-4xl'> {(weather.main.temp - 273.15).toFixed(1)}˚C</h1>
+                                    <p className=' flex place-items-center lg:p-4 md:p-0'> <img src={iconUrl} alt="icon/" /> {weather.weather[0].description} </p>
                                 </div>
-                                <img className='object-cover rounded-2xl  z-0' src="https://images.pexels.com/photos/1334607/pexels-photo-1334607.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" />
+                                <img className='w-full h-auto object-cover rounded-2xl  z-0' src="https://images.pexels.com/photos/1334607/pexels-photo-1334607.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" />
                             </div>
-                            <div className='m-6 text-start'>
-                                <div> 2</div>
-                                <div>3</div>
+                            <div className='flex flex-col m-10 text-start w-full h-auto'>
+                                <div>
+                                    <h5 className=''>Max Temperature {(weather.main.temp_max - 273.15).toFixed(1)}˚C</h5>
+                                    <h5 className=''>Min Temperature {(weather.main.temp_min - 273.15).toFixed(1)}˚C</h5>
+                                    <h5 className=''>Feels like {(weather.main.feels_like - 273.15).toFixed(1)}˚C</h5>
+                                    <h5 className=''>Humidity {Math.floor(weather.main.humidity)} %</h5>
+                                    <h5 className=''>Wind {Math.floor(weather.wind.speed)} km/h</h5>
+                                </div>
+                                <hr className='mt-5' />
+                                <div>
+
+                                </div>
                             </div>
                         </div>
                     </section>

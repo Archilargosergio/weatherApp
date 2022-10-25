@@ -14,7 +14,7 @@ const Form = ({ newLocation }) => {
     }
 
     return (
-        <section className='w-3/4 mx-auto mt-5 place-item-center'>
+        <section className='w-3/5 mx-auto mt-5 place-item-center'>
             <form className='bg-slate-300 flex flex-row place-content-center rounded-3xl' href='' onSubmit={handleSubmit}>
                 <input className='w-full px-5 bg-transparent text-start placeholder-black-200' type="text" placeholder='Write the name of the city' onChange={(e) => setCity(e.target.value)} />
                 <button type='submit' className='rounded-xl'>
