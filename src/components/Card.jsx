@@ -1,7 +1,7 @@
 import React from 'react';
 import Spinner from './Spinner';
 
-const Card = ({ loadingData, showData, weather, foreCast }) => {
+const Card = ({ loadingData, showData, weather, forecast }) => {
 
     //create date
 
@@ -11,10 +11,20 @@ const Card = ({ loadingData, showData, weather, foreCast }) => {
     let year = today.getFullYear();
     let date = day + '/' + month + '/' + year;
 
-    //url for icons
+    //url for icons weather
 
     let url = '';
     let iconUrl = '';
+
+    //url for icons each 3, 6 and 9 hours
+
+    let iconUrl3hr = '';
+    let iconUrl6hr = '';
+    let iconUrl9hr = '';
+
+    let foreCastDate3hr = '';
+    let foreCastDate6hr = '';
+    let foreCastDate9hr = '';
 
     //spinner
 
@@ -27,6 +37,14 @@ const Card = ({ loadingData, showData, weather, foreCast }) => {
     if (showData) {
         url = 'https://openweathermap.org/img/w/';
         iconUrl = url + weather.weather[0].icon + '.png';
+
+        iconUrl3hr = url + forecast.list[1].weather[0].icon + '.png';
+        iconUrl6hr = url + forecast.list[2].weather[0].icon + '.png';
+        iconUrl9hr = url + forecast.list[3].weather[0].icon + '.png';
+
+        foreCastDate3hr = forecast.list[1].dt_txt.substring(8, 10) + '/' + forecast.list[1].dt_txt.substring(5, 7) + '/' + forecast.list[1].dt_txt.substring(0, 4) + ' ' + forecast.list[1].dt_txt.substring(11, 13);
+        foreCastDate6hr = forecast.list[2].dt_txt.substring(8, 10) + '/' + forecast.list[2].dt_txt.substring(5, 7) + '/' + forecast.list[2].dt_txt.substring(0, 4) + ' ' + forecast.list[2].dt_txt.substring(11, 13);
+        foreCastDate9hr = forecast.list[3].dt_txt.substring(8, 10) + '/' + forecast.list[3].dt_txt.substring(5, 7) + '/' + forecast.list[3].dt_txt.substring(0, 4) + ' ' + forecast.list[3].dt_txt.substring(11, 13);
     }
 
     return (
@@ -54,7 +72,22 @@ const Card = ({ loadingData, showData, weather, foreCast }) => {
                                     <h5 className=''>Wind {Math.floor(weather.wind.speed)} km/h</h5>
                                 </div>
                                 <hr className='mt-5' />
-                                <div>
+                                <div className='mt-5'>
+                                    <h5>
+                                        <p>{foreCastDate3hr} h</p>
+                                        <p><img src={iconUrl3hr} alt="icon" />{forecast.list[1].weather[0].description}</p>
+                                        <p>{(forecast.list[1].main.temp - 273.15).toFixed(1)}˚C</p>
+                                    </h5>
+                                    <h5>
+                                        <p>{foreCastDate6hr} h</p>
+                                        <p><img src={iconUrl6hr} alt="icon" />{forecast.list[2].weather[0].description}</p>
+                                        <p>{(forecast.list[2].main.temp - 273.15).toFixed(1)}˚C</p>
+                                    </h5>
+                                    <h5>
+                                        <p>{foreCastDate9hr} h</p>
+                                        <p><img src={iconUrl9hr} alt="icon" />{forecast.list[3].weather[0].description}</p>
+                                        <p>{(forecast.list[3].main.temp - 273.15).toFixed(1)}˚C</p>
+                                    </h5>
 
                                 </div>
                             </div>

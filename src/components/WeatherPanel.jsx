@@ -12,7 +12,10 @@ const WeatherPanel = () => {
     const [forecast, setForeCast] = useState([]);
     const [loading, setLoading] = useState(false);
     const [show, setShow] = useState(false);
+    // eslint-disable-next-line no-unused-vars
     const [location, setLocation] = useState('');
+
+    //hook funciton
 
     const getLocation = async (loc) => {
         setLoading(true);
@@ -31,7 +34,7 @@ const WeatherPanel = () => {
             setLoading(false);
             setShow(true);
         }).catch(error => {
-            console.log(error);
+            console.error(error);
             setLoading(false)
             setShow(false);
         });
@@ -49,7 +52,7 @@ const WeatherPanel = () => {
             setLoading(false);
             setShow(true);
         }).catch(error => {
-            console.log(error);
+            console.error(error);
             setLoading(false);
             setShow(false);
         });
