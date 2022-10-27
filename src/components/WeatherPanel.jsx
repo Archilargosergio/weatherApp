@@ -4,18 +4,16 @@ import Form from './Form';
 import Card from './Card';
 
 const WeatherPanel = () => {
-    let urlWheater = 'https://api.openweathermap.org/data/2.5/weather?appid=2959820bf221d83ce918c684bdc9098a&lang=en';
+    let urlWeather = 'https://api.openweathermap.org/data/2.5/weather?appid=2959820bf221d83ce918c684bdc9098a&lang=en';
     let urlForeCast = 'https://api.openweathermap.org/data/2.5/forecast?appid=2959820bf221d83ce918c684bdc9098a&lang=en';
     let urlCity = '&q= ';
 
     const [weather, setWeather] = useState([]);
-    const [forecast, setForeCast] = useState([]);
+    const [forecast, setForecast] = useState([]);
     const [loading, setLoading] = useState(false);
     const [show, setShow] = useState(false);
     // eslint-disable-next-line no-unused-vars
     const [location, setLocation] = useState('');
-
-    //hook funciton
 
     const getLocation = async (loc) => {
         setLoading(true);
@@ -23,53 +21,61 @@ const WeatherPanel = () => {
 
         //weather
 
-        urlWheater += urlCity + loc;
+        urlWeather += urlCity + loc;
 
-        await fetch(urlWheater).then((response) => {
-            if (!response.ok) throw { response }
+        await fetch(urlWeather).then((response) => {
             return response.json();
         }).then((weatherData) => {
             console.log(weatherData);
             setWeather(weatherData);
-            setLoading(false);
-            setShow(true);
+
         }).catch(error => {
             console.error(error);
-            setLoading(false)
+            setLoading(false);
             setShow(false);
         });
 
-        //foreCast
+        //Forecast
 
         urlForeCast += urlCity + loc;
 
         await fetch(urlForeCast).then((response) => {
-            if (!response.ok) throw { response };
             return response.json();
         }).then((forecastData) => {
             console.log(forecastData);
-            setForeCast(forecastData);
+            setForecast(forecastData);
+
             setLoading(false);
             setShow(true);
+
         }).catch(error => {
             console.error(error);
             setLoading(false);
             setShow(false);
         });
+
+
     }
 
+
     return (
+
         <React.Fragment>
-            < Form
+
+            <Form
                 newLocation={getLocation}
             />
-            < Card
+
+            <Card
                 showData={show}
                 loadingData={loading}
                 weather={weather}
                 forecast={forecast}
             />
+
+
         </React.Fragment>
+
     );
 }
 
