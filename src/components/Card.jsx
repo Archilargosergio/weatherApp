@@ -42,42 +42,42 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
             {
                 showData === true ? (
 
-                    <section className='md:w-1/2 lg:w-2/3 h-auto mx-auto bg-slate-900 text-white rounded-2xl '>
-                        <div className='md:flex-row lg:flex'>
-                            <div className='w-2/3 h-auto rounded-2xl'>
-                                <div className='absolute z-1 font-bold m-8 '>
-                                    <h1 className='m-2.5 md:text-4xl lg:text-6xl'> {weather.name} </h1>
+                    <section className='lg:w-2/4 sm:w-1/2 h-auto mx-auto bg-slate-900 text-white rounded-2xl '>
+                        <div className='grid sm:grid-cols-1 lg:grid-cols-2 lg:w-full h-auto gap-0'>
+                            <div className='sm:w-full lg:w-11/12 h-auto rounded-2xl flex justify-center'>
+                                <div className='w-auto h-auto absolute z-10 font-bold mt-16 sm:gap-y-2'>
+                                    <p className='text-4xl'> {weather.name}</p>
                                     <p className='text-lg'> {date} </p>
-                                    <h1 className='md:text-4xl lg:text-6xl'> {(weather.main.temp - 273.15).toFixed(1)}˚C</h1>
-                                    <p className=' flex place-items-center lg:p-4 md-sm:p-0'> <img src={iconUrl} alt="icon/" /> {weather.weather[0].description} </p>
+                                    <p className='text-6xl'> {(weather.main.temp - 273.15).toFixed(1)}˚C</p>
+                                    <p className='grid place-items-center text-3xl'> <img className='w-max' src={iconUrl} alt="icon/" /> {weather.weather[0].description} </p>
                                 </div>
-                                <div className=' md:w-4/5 lg:w-full h-auto'>
-                                    <img className='w-full h-auto object-cover rounded-2xl  z-0' src="https://images.pexels.com/photos/1334607/pexels-photo-1334607.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" />
+                                <div className='w-full h-auto relative z-0'>
+                                    <img className='sm:11/12 lg:w-full h-auto object-cover rounded-2xl  z-0' src="https://images.pexels.com/photos/1334607/pexels-photo-1334607.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" />
                                 </div>
                             </div>
-                            <div className='flex flex-col md:mt-10 lg:m-10 md:tex-center lg:text-start w-full h-auto'>
-                                <div>
+                            <div className='flex flex-col sm:justify-center lg:text-start w-11/12 h-auto '>
+                                <div className='w-full sm:mt-4 lg:mt-0 sm:mx-2 lg:mx-0'>
                                     <h5 className=''>Max Temperature {(weather.main.temp_max - 273.15).toFixed(1)}˚C</h5>
                                     <h5 className=''>Min Temperature {(weather.main.temp_min - 273.15).toFixed(1)}˚C</h5>
                                     <h5 className=''>Feels like {(weather.main.feels_like - 273.15).toFixed(1)}˚C</h5>
                                     <h5 className=''>Humidity {Math.floor(weather.main.humidity)} %</h5>
                                     <h5 className=''>Wind {Math.floor(weather.wind.speed)} km/h</h5>
                                 </div>
-                                <hr className='mt-8 md:w-10/12 lg:w-11/12' />
-                                <div className='w-full mt-8 flex md:justify-center lg:gap-10 md:gap-4 md:mx-12 lg:mx-0'>
+                                <hr className='mt-8 w-full h-auto sm:ml-3 lg:ml-0' />
+                                <div className='w-full mt-8 sm:ml-2.5 lg:ml-0  sm:mb-2 lg:mb-0 flex gap-4 '>
                                     <h5>
                                         <p>{forecastDate3} h</p>
-                                        <p className=''><img src={iconUrl3} alt="icon" />{forecast.list[1].weather[0].description}</p>
+                                        <p><img src={iconUrl3} alt="icon" className='sm:px-5 lg:px-0' />{forecast.list[1].weather[0].description}</p>
                                         <p>{(forecast.list[1].main.temp - 273.15).toFixed(1)}˚C</p>
                                     </h5>
                                     <h5>
                                         <p>{forecastDate6} h</p>
-                                        <p><img src={iconUrl6} alt="icon" />{forecast.list[2].weather[0].description}</p>
+                                        <p><img src={iconUrl6} alt="icon" className='sm:px-5 lg:px-0' />{forecast.list[2].weather[0].description}</p>
                                         <p>{(forecast.list[2].main.temp - 273.15).toFixed(1)}˚C</p>
                                     </h5>
                                     <h5>
                                         <p>{forecastDate9} h</p>
-                                        <p><img src={iconUrl9} alt="icon" />{forecast.list[3].weather[0].description}</p>
+                                        <p><img src={iconUrl9} alt="icon" className='sm:px-5 lg:px-0' />{forecast.list[3].weather[0].description}</p>
                                         <p>{(forecast.list[3].main.temp - 273.15).toFixed(1)}˚C</p>
                                     </h5>
 
