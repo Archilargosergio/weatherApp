@@ -10,7 +10,7 @@ const NavBar = () => {
     }
     return (
         <div className='flex w-full h-10 bg-slate-800 place-content-center'>
-            <div className='w-10 mx-2 h-auto hover:cursor-pointer'>
+            <div className='w-10 mx-1 h-auto hover:cursor-pointer'>
                 <img className='w-full' src={menuIcon} alt="menu" onClick={handleMenu} />
                 {menu && < Menu />}
             </div>
