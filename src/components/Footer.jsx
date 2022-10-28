@@ -4,7 +4,7 @@ import linkedinIcon from '../assets/logotipo-de-linkedin.png';
 
 const Footer = () => {
     return (
-        <footer className='fixed bottom-0 content-end w-full h-10 mt-max'>
+        <footer className='fixed bottom-0 mt-5 content-end w-full h-10'>
             <ul className='flex flex-row justify-end mx-2 mt-1 gap-4'>
                 <li>
                     <a href="https://github.com/Archilargosergio" >

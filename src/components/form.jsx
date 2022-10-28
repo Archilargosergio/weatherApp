@@ -17,7 +17,7 @@ const Form = ({ newLocation }) => {
                 <button type='submit' className='rounded-xl'>
                     <img className='w-max px-3 hover:cursor-pointer dark:hover:bg-slate-400' src={Loop} alt="" />
                 </button>
-                <button className='w-20 hover:cursor-pointer dark:hover:bg-slate-400 rounded-xl' type="reset"> Reset</button>
+                <button className='w-20 hover:cursor-pointer dark:hover:bg-slate-400 rounded-xl px-2' type="reset">Reset</button>
             </form>
         </section>
     )

@@ -14,7 +14,7 @@ const NavBar = () => {
                 <img className='w-full' src={menuIcon} alt="menu" onClick={handleMenu} />
                 {menu && < Menu />}
             </div>
-            <h3 className='w-full h-auto pt-2 mr-16 text-center text-white font-bold'> APLICATION WEATHER </h3>
+            <h3 className='w-full h-auto pt-2 sm:mr-12 lg:mr-20 text-center text-white font-bold'> APLICATION WEATHER </h3>
         </div>
     )
 }
